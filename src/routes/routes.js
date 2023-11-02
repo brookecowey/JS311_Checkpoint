@@ -4,6 +4,8 @@ let router = express.Router();
 
 let controller = require("../controllers/controller");
 
+let authController = require("../controllers/authController")
+
 //route to get all the items
 router.get("/moodvies", controller.listEntries);
 
@@ -21,8 +23,8 @@ router.post("/moodvies", controller.addEntryByUserID);
 //route to update item
 // router.put("/moodvies/:id", controller.updateEntry);
 
-router.post("/register", controller.registerUser);
+router.post("/register", authController.registerUser);
 
-router.post("/login", controller.loginUser);
+router.post("/login", authController.loginUser);
 
 module.exports = router;
